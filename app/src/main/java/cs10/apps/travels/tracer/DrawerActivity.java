@@ -41,6 +41,7 @@ import cs10.apps.travels.tracer.databinding.ActivityDrawerBinding;
 import cs10.apps.travels.tracer.db.MiDB;
 import cs10.apps.travels.tracer.model.Viaje;
 import cs10.apps.travels.tracer.ui.coffee.CoffeeCreator;
+import cs10.apps.travels.tracer.ui.settings.SettingsActivity;
 import cs10.apps.travels.tracer.ui.stops.DatabaseCallback;
 import cs10.apps.travels.tracer.ui.stops.StopCreator;
 import cs10.apps.travels.tracer.ui.travels.BusTravelCreator;
@@ -224,7 +225,12 @@ public class DrawerActivity extends CSActivity implements DatabaseCallback {
         if (item.getItemId() == R.id.action_coffee) {
             startActivity(new Intent(this, CoffeeCreator.class));
             return true;
-        } else return super.onOptionsItemSelected(item);
+        } else if (item.getItemId() == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

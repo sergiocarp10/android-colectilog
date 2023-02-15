@@ -99,6 +99,23 @@
     <string name="bus_travel">Viaje en colectivo</string>
     <string name="open_map">Abrir mapa</string>
     <string name="unknown_zone">Zona sin definir</string>
-    <string name="people_count">Pasajeros (que pagaste)</string>
+    <string name="people_count">Pasajeros pagados</string>
     <string name="share">Compartir</string>
+    <string name="title_activity_settings">Configuración</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Mensajes</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="destinatario_1">Destinatario 1</string>
+    <string name="destinatario_2">Destinatario 2</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

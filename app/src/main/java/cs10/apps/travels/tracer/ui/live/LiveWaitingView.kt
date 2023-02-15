@@ -1,17 +1,45 @@
 package cs10.apps.travels.tracer.ui.live
 
+import android.content.Context
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.preference.PreferenceManager
+import cs10.apps.common.android.Emoji
 import cs10.apps.travels.tracer.R
 import cs10.apps.travels.tracer.databinding.ContentLiveWaitingBinding
+import cs10.apps.travels.tracer.message.WhatsAppApi
 import cs10.apps.travels.tracer.model.Parada
 
 class LiveWaitingView(private val binding: ContentLiveWaitingBinding) {
     private var expanded = false
     private var enabled = false
 
+    private val whatsAppApi = WhatsAppApi()
+
+    // TODO: replace with user preferences
+    private val prefs = PreferenceManager.getDefaultSharedPreferences(getContext())
+    private val testPhoneNumber = "+5492216146436"
+
     init {
         disableAnimation()
+        setupShareButton()
+    }
+
+    private fun setupShareButton() {
+        binding.shareWaitingBtn.setOnClickListener {
+            if (whatsAppApi.isAppInstalled(getContext())){
+                val message = Emoji.getBusEmoji() + " - " + binding.currentStopTv.text.toString()
+                val person1 = prefs.getString("dest_no1", testPhoneNumber)
+                whatsAppApi.sendMessageToPerson(getContext(), message, person1!!)
+            } else {
+                Toast.makeText(getContext(), "App is not installed!", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun getContext() : Context {
+        return binding.root.context
     }
 
     private fun animateButton(){
