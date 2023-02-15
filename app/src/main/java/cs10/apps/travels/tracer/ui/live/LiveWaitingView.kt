@@ -15,8 +15,8 @@ class LiveWaitingView(private val binding: ContentLiveWaitingBinding) {
     }
 
     private fun animateButton(){
-        if (expanded) animateExpandButton()
-        else animateReduceButton()
+        if (expanded) animateReduceButton()
+        else animateExpandButton()
     }
 
     private fun animateExpandButton(){
@@ -58,9 +58,11 @@ class LiveWaitingView(private val binding: ContentLiveWaitingBinding) {
         when (stopHere) {
             null -> {
                 binding.currentStopTv.text = null
+                binding.shareWaitingBtn.isVisible = false
                 disableAnimation()
             } else -> {
                 binding.currentStopTv.text = "Esperando en ${stopHere.nombre}"
+                binding.shareWaitingBtn.isVisible = true
                 enableAnimation()
             }
         }

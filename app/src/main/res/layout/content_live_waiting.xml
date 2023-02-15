@@ -46,4 +46,16 @@
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/share_waiting_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/bus"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
